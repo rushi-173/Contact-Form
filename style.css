@@ -7,8 +7,13 @@
 body{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-secondary-200);
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav{
@@ -17,10 +22,70 @@ nav{
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 0 0 1rem;
     width: 100%;
+    top: 0;
+    left:0;
+    position: fixed;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 10vh;
+    box-shadow:  10px 10px 30px #190075,
+    -10px -10px 30px #0a0063;
+}
+
+nav h1{
+    text-shadow:  5px 5px 20px #1b007e,
+    -5px -5px 20px #070042;
+}
+
+main, form{
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+input, textarea, button{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin: 0.4rem 0rem;
+    box-shadow:  5px 5px 20px #070042 ,
+    -5px -5px 20px #1b007e;
+    border-radius: 0.1rem;
+    color: var(--grey-800);
+}
+
+::
+
+footer {
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+    padding: 0 0 1rem;
+    width: 100%;
+    box-shadow:  5px 5px 20px #1b007e,
+    -5px -5px 20px #0d0080;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline-start: 0px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+footer a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: white;
 }
