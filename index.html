@@ -8,7 +8,28 @@
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
+    />   
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_sUc0VjiudPDCxtxAGPkDv');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                emailjs.sendForm('service_rfputuo', 'contact_rushi', this)
+                    .then(function() {
+                        alert("Your message has been successfully sent.")
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 <body>
     <nav>
@@ -16,14 +37,14 @@
     </nav>
     <main>
         <h1 style="text-align: center;">Contact Form</h1>
-        <form>
+        <form id="contact-form">
             <label>Name:</label>
-            <input type="text" placeholder="Enter your name here">
+            <input type="text" name="from_name" placeholder="Enter your name here" required>
             <label>Email:</label>
-            <input type="email" placeholder="Enter your email here">
+            <input type="email" name="from_email" placeholder="Enter your email here" required>
             <label>Message:</label>
-            <textarea placeholder="Type your message here..." rows="10"></textarea>
-            <button type="submit">Send Message</button>
+            <textarea placeholder="Type your message here..." name="message" rows="10" required></textarea>
+            <input type="submit" class="submit" value="Send Message">
         </form>
     </main>
     <footer>
